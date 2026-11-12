@@ -1,5 +1,7 @@
 import { AboutSection } from "@/components/sections/about-section";
 import { AchievementsSection } from "@/components/sections/achievements-section";
+import { AiSection } from "@/components/sections/ai-section";
+import { CapabilitiesSection } from "@/components/sections/capabilities-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { EducationSection } from "@/components/sections/education-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
@@ -12,10 +14,12 @@ export default function Page() {
     <main className="flex min-h-[100dvh] flex-col">
       <HeroSection />
       <AboutSection />
+      <CapabilitiesSection />
       <ExperienceSection />
-      <SkillsSection />
       <ProjectsSection />
+      <AiSection />
       <AchievementsSection />
+      <SkillsSection />
       <EducationSection />
       <ContactSection />
     </main>

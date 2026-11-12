@@ -15,32 +15,22 @@ export function ExperienceCard({ experience, className }: ExperienceCardProps) {
         className
       )}
     >
-      <div className="flex items-start gap-4 sm:block">
-        <div className="relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border/70 bg-background">
-          <Image
-            src={experience.logoUrl}
-            alt={`${experience.company} logo`}
-            width={40}
-            height={40}
-            className="object-contain"
-          />
-        </div>
-        <div className="sm:hidden">
-          <p className="font-mono text-xs text-muted-foreground">
-            {experience.start} — {experience.end}
-          </p>
-          <h3 className="mt-1 text-lg font-semibold tracking-tight">
-            {experience.role}
-          </h3>
-        </div>
+      <div className="relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border/70 bg-background">
+        <Image
+          src={experience.logoUrl}
+          alt={`${experience.company} logo`}
+          width={40}
+          height={40}
+          className="object-contain"
+        />
       </div>
 
       <div className="min-w-0 space-y-4">
         <header className="space-y-1">
-          <p className="hidden font-mono text-xs text-muted-foreground sm:block">
+          <p className="font-mono text-xs text-muted-foreground">
             {experience.start} — {experience.end}
           </p>
-          <h3 className="hidden text-xl font-semibold tracking-tight sm:block">
+          <h3 className="text-xl font-semibold tracking-tight">
             {experience.role}
           </h3>
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">

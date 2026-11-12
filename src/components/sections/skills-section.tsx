@@ -11,8 +11,8 @@ export function SkillsSection() {
         <BlurFade delay={BLUR_FADE_DELAY} inView>
           <SectionHeading
             eyebrow="Skills"
-            title="A practical stack for modern product engineering."
-            description="Organized by domain — the tools I use to design, build, deploy, and maintain production systems."
+            title="Technologies I use to ship products."
+            description="Compact groups by domain — no arbitrary proficiency percentages."
           />
         </BlurFade>
 

@@ -24,7 +24,7 @@ export function SectionHeading({
       )}
     >
       {eyebrow ? (
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+        <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-primary">
           {eyebrow}
         </p>
       ) : null}

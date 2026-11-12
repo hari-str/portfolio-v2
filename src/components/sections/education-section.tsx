@@ -16,15 +16,15 @@ export function EducationSection() {
           />
         </BlurFade>
 
-        <ol className="relative space-y-4 before:absolute before:bottom-4 before:left-[1.35rem] before:top-4 before:w-px before:bg-border/70">
+        <ol className="space-y-4">
           {portfolio.education.map((item, index) => (
             <BlurFade
               key={item.degree}
               delay={BLUR_FADE_DELAY * (2 + index)}
               inView
             >
-              <li className="relative grid gap-4 rounded-2xl border border-border/70 bg-card/40 p-5 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-6 sm:p-6">
-                <div className="relative z-10 flex size-11 items-center justify-center overflow-hidden rounded-xl border border-border/70 bg-background">
+              <li className="grid gap-4 rounded-2xl border border-border/70 bg-card/40 p-5 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-6 sm:p-6">
+                <div className="flex size-11 items-center justify-center overflow-hidden rounded-xl border border-border/70 bg-background">
                   <Image
                     src={item.logoUrl}
                     alt={`${item.school} logo`}

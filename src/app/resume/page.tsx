@@ -7,7 +7,7 @@ import { PrintButton } from "./print-button";
 
 export const metadata: Metadata = {
   title: "Resume",
-  description: `Resume of ${portfolio.name} — Full Stack Developer and Frontend Engineer.`,
+  description: `Resume of ${portfolio.name} — Full Stack Engineer and Frontend Specialist.`,
 };
 
 export default function ResumePage() {
@@ -61,7 +61,7 @@ export default function ResumePage() {
             Summary
           </h2>
           <p className="text-sm leading-relaxed text-muted-foreground print:text-neutral-700">
-            {portfolio.about.paragraphs[0]} {portfolio.about.paragraphs[1]}
+            {portfolio.introduction}
           </p>
         </section>
 

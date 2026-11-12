@@ -1,3 +1,4 @@
+import { PortfolioAssistant } from "@/components/assistant/portfolio-assistant";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -5,10 +6,10 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { portfolio } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
-import { JetBrains_Mono, Outfit } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const fontSans = Outfit({
+const fontSans = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -24,22 +25,24 @@ export const metadata: Metadata = {
     default: `${portfolio.name} · ${portfolio.title}`,
     template: `%s | ${portfolio.name}`,
   },
-  description: portfolio.tagline,
+  description: portfolio.introduction,
   keywords: [
     "Hariharan Ganesan",
-    "Full Stack Developer",
-    "Frontend Engineer",
+    "Full Stack Engineer",
+    "Frontend Specialist",
     "React",
     "Next.js",
     "Node.js",
     "Nest.js",
+    "AWS",
+    "EdTech",
     "Chennai",
   ],
   authors: [{ name: portfolio.name, url: portfolio.url }],
   creator: portfolio.name,
   openGraph: {
-    title: `${portfolio.name} · Full Stack Developer`,
-    description: portfolio.tagline,
+    title: `${portfolio.name} · Full Stack Engineer`,
+    description: portfolio.headline,
     url: portfolio.url,
     siteName: portfolio.name,
     locale: "en_IN",
@@ -47,8 +50,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: portfolio.avatarUrl,
-        width: 460,
-        height: 460,
+        width: 800,
+        height: 800,
         alt: portfolio.name,
       },
     ],
@@ -65,8 +68,8 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: `${portfolio.name} · Full Stack Developer`,
-    description: portfolio.tagline,
+    title: `${portfolio.name} · Full Stack Engineer`,
+    description: portfolio.headline,
     card: "summary_large_image",
     images: [portfolio.avatarUrl],
   },
@@ -95,6 +98,7 @@ export default function RootLayout({
               <Navbar />
               <div className="flex-1">{children}</div>
               <Footer />
+              <PortfolioAssistant />
             </div>
           </TooltipProvider>
         </ThemeProvider>

@@ -10,29 +10,47 @@ import { useEffect, useRef, useState } from "react";
 function AnimatedStat({
   value,
   label,
+  numeric,
+  suffix,
 }: {
   value: string;
   label: string;
+  numeric?: number;
+  suffix?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-40px" });
-  const [visible, setVisible] = useState(false);
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
-    if (inView) setVisible(true);
-  }, [inView]);
+    if (!inView || numeric == null) {
+      if (inView) setDisplay(value);
+      return;
+    }
+
+    let frame = 0;
+    const total = 24;
+    const id = window.setInterval(() => {
+      frame += 1;
+      const progress = frame / total;
+      const current = Math.round(numeric * progress);
+      setDisplay(`${current}${suffix ?? ""}`);
+      if (frame >= total) {
+        window.clearInterval(id);
+        setDisplay(value);
+      }
+    }, 30);
+
+    return () => window.clearInterval(id);
+  }, [inView, numeric, suffix, value]);
 
   return (
     <div
       ref={ref}
       className="rounded-2xl border border-border/70 bg-card/40 px-5 py-6 text-center transition-colors hover:border-primary/25"
     >
-      <p
-        className={`font-mono text-3xl font-semibold tracking-tight text-foreground transition-all duration-700 sm:text-4xl ${
-          visible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
-        }`}
-      >
-        {value}
+      <p className="font-mono text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+        {display}
       </p>
       <p className="mt-2 text-sm text-muted-foreground">{label}</p>
     </div>
@@ -41,16 +59,13 @@ function AnimatedStat({
 
 export function AchievementsSection() {
   return (
-    <section
-      id="achievements"
-      className="border-b border-border/60 py-20 sm:py-28"
-    >
+    <section id="achievements" className="border-b border-border/60 py-20 sm:py-28">
       <div className="container-wide section-pad space-y-10">
         <BlurFade delay={BLUR_FADE_DELAY} inView>
           <SectionHeading
             eyebrow="Impact"
             title="Engineering outcomes that matter."
-            description="Verified metrics from production systems, platform scale, and team collaboration."
+            description="Verified metrics from production systems, platform scale, and collaboration."
             align="center"
             className="mx-auto"
           />
@@ -62,13 +77,13 @@ export function AchievementsSection() {
               key={item.label}
               delay={BLUR_FADE_DELAY * (2 + index)}
               inView
-              className={
-                index === portfolio.achievements.length - 1
-                  ? "col-span-2 sm:col-span-1 lg:col-span-1"
-                  : undefined
-              }
             >
-              <AnimatedStat value={item.value} label={item.label} />
+              <AnimatedStat
+                value={item.value}
+                label={item.label}
+                numeric={item.numeric}
+                suffix={item.suffix}
+              />
             </BlurFade>
           ))}
         </div>

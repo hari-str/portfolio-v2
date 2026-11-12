@@ -10,7 +10,7 @@ export function Footer() {
         <div>
           <p className="text-sm font-medium text-foreground">{portfolio.name}</p>
           <p className="mt-1 text-sm text-muted-foreground">
-            © {year} · Built with Next.js & TypeScript
+            © {year} · Full Stack Engineer · Chennai
           </p>
         </div>
         <SocialLinks />

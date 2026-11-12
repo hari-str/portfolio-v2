@@ -30,6 +30,8 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         surface: "hsl(var(--surface))",
+        elevated: "hsl(var(--elevated))",
+        cyan: "hsl(var(--cyan))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -73,20 +75,25 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "orb-float": {
+          "0%, 100%": { transform: "translateY(0px) scale(1)" },
+          "50%": { transform: "translateY(-12px) scale(1.03)" },
+        },
+        "gradient-shift": {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+        },
         "fade-up": {
           from: { opacity: "0", transform: "translateY(12px)" },
           to: { opacity: "1", transform: "translateY(0)" },
-        },
-        "pulse-soft": {
-          "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "0.8" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "orb-float": "orb-float 8s ease-in-out infinite",
+        "gradient-shift": "gradient-shift 10s ease infinite",
         "fade-up": "fade-up 0.6s ease-out forwards",
-        "pulse-soft": "pulse-soft 3s ease-in-out infinite",
       },
     },
   },

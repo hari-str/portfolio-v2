@@ -13,7 +13,7 @@ export function ContactSection() {
       <div className="container-wide section-pad">
         <BlurFade delay={BLUR_FADE_DELAY} inView>
           <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/50 px-6 py-12 sm:px-10 sm:py-16">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--glow)/0.12),transparent_55%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--glow)/0.14),transparent_55%),radial-gradient(ellipse_at_bottom_left,hsl(var(--cyan)/0.1),transparent_45%)]" />
             <div className="relative mx-auto max-w-3xl space-y-8 text-center">
               <div className="space-y-4">
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
@@ -50,10 +50,6 @@ export function ContactSection() {
 
               <div className="flex flex-col items-center gap-4 pt-2">
                 <SocialLinks />
-                <p className="text-sm text-muted-foreground">
-                  Prefer LinkedIn? Reach out anytime — I typically respond within
-                  a day.
-                </p>
               </div>
             </div>
           </div>

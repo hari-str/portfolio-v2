@@ -10,7 +10,7 @@ export function AboutSection() {
         <BlurFade delay={BLUR_FADE_DELAY} inView>
           <SectionHeading
             eyebrow="About"
-            title="Engineering products that scale — with care for craft and users."
+            title="Engineering philosophy shaped by real production systems."
           />
         </BlurFade>
 
@@ -28,11 +28,17 @@ export function AboutSection() {
           ))}
 
           <BlurFade delay={BLUR_FADE_DELAY * 5} inView>
-            <ul className="mt-2 grid gap-3 sm:grid-cols-2">
+            <blockquote className="rounded-2xl border border-primary/20 bg-accent/40 p-5 text-base leading-relaxed text-foreground sm:p-6 sm:text-lg">
+              {portfolio.about.philosophy}
+            </blockquote>
+          </BlurFade>
+
+          <BlurFade delay={BLUR_FADE_DELAY * 6} inView>
+            <ul className="grid gap-3 sm:grid-cols-2">
               {portfolio.about.focus.map((item) => (
                 <li
                   key={item}
-                  className="rounded-xl border border-border/70 bg-card/30 px-4 py-3 text-sm text-muted-foreground"
+                  className="rounded-xl border border-border/70 bg-elevated/30 px-4 py-3 text-sm text-muted-foreground"
                 >
                   {item}
                 </li>

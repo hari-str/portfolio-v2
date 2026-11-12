@@ -1,12 +1,12 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/ui/project-card";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { portfolio } from "@/data/portfolio";
+import { getFeaturedProjects, getSecondaryProjects } from "@/data/projects";
 import { BLUR_FADE_DELAY } from "@/lib/constants";
 
 export function ProjectsSection() {
-  const featured = portfolio.projects.filter((project) => project.featured);
-  const secondary = portfolio.projects.filter((project) => !project.featured);
+  const featured = getFeaturedProjects();
+  const secondary = getSecondaryProjects();
 
   return (
     <section id="projects" className="border-b border-border/60 py-20 sm:py-28">
@@ -14,18 +14,17 @@ export function ProjectsSection() {
         <BlurFade delay={BLUR_FADE_DELAY} inView>
           <SectionHeading
             eyebrow="Projects"
-            title="Featured work with real product impact."
-            description="Production platforms and personal builds — focused on scale, performance, and user experience."
+            title="Engineering case studies with measurable impact."
+            description="Production platforms and selected builds — focused on scale, performance, and product outcomes."
           />
         </BlurFade>
 
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className="grid gap-5">
           {featured.map((project, index) => (
             <BlurFade
-              key={project.title}
+              key={project.slug}
               delay={BLUR_FADE_DELAY * (2 + index)}
               inView
-              className={index === 0 ? "lg:col-span-2" : undefined}
             >
               <ProjectCard
                 project={project}
@@ -45,7 +44,7 @@ export function ProjectsSection() {
           <div className="grid gap-4 md:grid-cols-2">
             {secondary.map((project, index) => (
               <BlurFade
-                key={project.title}
+                key={project.slug}
                 delay={BLUR_FADE_DELAY * (7 + index)}
                 inView
               >

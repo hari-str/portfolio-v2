@@ -12,12 +12,11 @@ export function ExperienceSection() {
           <SectionHeading
             eyebrow="Experience"
             title="Where I've built and shipped."
-            description="Measurable outcomes across full-stack product engineering, platform scale, and team mentorship."
+            description="Measurable outcomes across full-stack product engineering, platform scale, and mentorship."
           />
         </BlurFade>
 
-        <div className="relative space-y-6">
-          <div className="absolute bottom-6 left-[2.35rem] top-6 hidden w-px bg-border/70 md:block" />
+        <div className="space-y-6">
           {portfolio.experience.map((item, index) => (
             <BlurFade
               key={item.company}
