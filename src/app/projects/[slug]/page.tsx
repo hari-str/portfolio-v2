@@ -141,7 +141,7 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
         </div>
 
         <aside className="space-y-5 lg:sticky lg:top-24 lg:self-start">
-          <ProjectVisual project={project} />
+          <ProjectVisual project={project} className="rounded-2xl border border-border/70" />
           <div className="rounded-2xl border border-border/70 bg-card/40 p-5">
             <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
               Technology stack

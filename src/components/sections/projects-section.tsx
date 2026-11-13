@@ -26,11 +26,7 @@ export function ProjectsSection() {
               delay={BLUR_FADE_DELAY * (2 + index)}
               inView
             >
-              <ProjectCard
-                project={project}
-                featured
-                wide={index === 0}
-              />
+              <ProjectCard project={project} featured />
             </BlurFade>
           ))}
         </div>
